@@ -10,9 +10,16 @@ $(document).ready(function() {
     .mousedown(function() {
         $('.ryu-ready').hide();
         $('.ryu-throwing').show();
-        $('.hadouken').show();
+        $('.hadouken').finish().show()
+        .animate(
+            {'left': '300px'},
+            500,
+            function() {
+                $(this).hide();
+                $(this).css('left', '-200px');
+            }
+        );
         // play hadouken sound
-        // show hadouken and animate it to the right of the screen
     })
     .mouseup(function() {
         $('.ryu-throwing').hide();
